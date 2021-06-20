@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  </head>
+  <style type="text/css">
+     .container{
+       margin-top: 10px;
+       margin-bottom: 10px;
+     }
+     h1{
+       text-align: center;
+     }
+     p{
+       text-align: center;
+     }
+  </style>
+  <body style="background-color : black">
+    <h1 style="color : white; text-align: center;"> <span style="color: red">COVID-19 </span>WORLD WIDE DATA</h1>
+
+
+    <form class="d-flex justify-content-center" action="" method="post">
+
+        {% csrf_token %}
+
+        <select class="form-control" style="width: 200px; margin-top : 50px;" name="selectedcountry">
+        {% for country in mylist%}
+        <option>{{country}}</option>
+        {% endfor %}
+        </select>
+
+    <input type="submit" name="" class="btn btn-danger" value="SUBMIT" style=" margin-top: 50px">
+    </form>
+    <h1 style="color: white; text-align: center; margin: 50px;">{{selectedcountry}}</h1>
+    <!-- <p>new : {{new}}</p>
+    <p>active : {{active}}</p>
+    <p>critical : {{ critical }}</p>
+    <p>recovered : {{recovered}}</p>
+    <p>total : {{ total }}</p>
+    <p>new deaths : {{ newdeaths}}</p>
+    <p>total deaths : {{ totaldeaths }}</p> -->
+
+    <div class="d-flex justify-container-center align-items-center">
+      <div class="container" style="height: 100px; width:200px; background-color: pink; border-radius: 10px;">
+        <h1>{{total}}</h1> <p>Total cases</p>
+      </div>
+      <div class="container" style="height: 100px; width:200px; background-color: yellow;border-radius: 10px;">
+        <h1>{{new}}</h1> <p>New cases</p>
+      </div>
+      <div class="container" style="height: 100px; width:200px; background-color: blue;border-radius: 10px;">
+        <h1>{{active}}</h1> <p>Active cases</p>
+      </div>
+
+    </div>
+    <div class="d-flex justify-container-center align-items-center">
+      <div class="container" style="height: 100px; width:200px;background-color: orange;border-radius: 10px;">
+        <h1>{{critical}}</h1> <p>critical cases</p>
+      </div>
+      <div class="container" style="height: 100px; width:200px; background-color: green;border-radius: 10px;">
+        <h1>{{recovered}}</h1> <p>recovered</p>
+      </div>
+      <div class="container" style="height: 100px; width:200px; background-color:#ed585a;border-radius: 10px;">
+        <h1>{{newdeaths}}</h1> <p>New deaths</p>
+      </div>
+
+    </div>
+    <div class="d-flex justify-container-center align-items-center">
+      <div class="container" style="height: 100px; width:200px; background-color:red;border-radius: 10px;">
+        <h1>{{totaldeaths}}</h1> <p>Total deaths</p>
+      </div>
+
+    </div>
+    <p style="color:grey; margin-top: 20px">Developed by Shivangi Nigam</p>
+  </body>
+</html>
